@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main", "git_action_br" ] # Triggers on both branches
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "git_action_br" ]
 
 jobs:
   # --- STAGE 1: Quality Control (CI) ---
@@ -54,7 +54,7 @@ jobs:
 
       - name: Simulate Deployment
         run: |
-          echo "🚀 Deploying to Production Server..."
+          echo "Deploying to Production Server..."
           echo "Environment: Production"
           echo "Artifact: version-${{ github.sha }}"
           # In a real scenario, you would add your Docker or Cloud commands here
